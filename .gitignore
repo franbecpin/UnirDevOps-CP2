@@ -1,0 +1,24 @@
+ # Carpetas de trabajo de Terraform
+**/.terraform/
+**/.terraform/*
+
+# Ficheros de estado y backups (¡no deben versionarse!)
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# (Opcional) Bloqueo de providers:
+# Para módulos reutilizables, suele NO versionarse el lockfile.
+# Si tienes un módulo raíz, puedes querer mantenerlo en ese módulo raíz.
+**/.terraform.lock.hcl
+
+# Otros (según tu entorno/editor)
+.terraformrc
+terraform.rc
+.vscode/
+.DS_Store
