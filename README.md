@@ -27,6 +27,81 @@ FASE 4 — Ansible:
 FASE 5 — Validar accesos
 FASE 6 — Crear informe PDF
 
+```
+GEMINI
+Fase 1: Preparación del Entorno
+
+Configurar la cuenta de Azure: Activar la suscripción de estudiante (crédito de $100) utilizando el correo institucional y el CIF de UNIR.
+
+
+Preparar el Nodo de Control: Configurar una máquina (Linux/Mac preferiblemente) con Python 3, Ansible (v2.12+), Terraform y Azure CLI.
++1
+
+
+Generar Claves SSH: Crear un par de claves en el nodo de control para permitir la conexión de Ansible con la futura máquina virtual.
+
+
+Inicializar el Repositorio Git: Crear un repo público con la estructura obligatoria: carpetas /terraform (con main.tf, vars.tf, recursos.tf) y /ansible (con hosts, playbook.yml, deploy.sh).
++1
+
+Fase 2: Infraestructura con Terraform
+
+Definir el Azure Container Registry (ACR): Crear el registro con acceso desde Internet y autenticación habilitada.
++1
+
+
+Crear la Máquina Virtual (VM): Desplegar una VM Linux (distribución libre) que servirá para ejecutar Podman.
++1
+
+
+Desplegar el Cluster AKS: Configurar un cluster gestionado con un único worker.
++1
+
+
+Vincular ACR y AKS: Configurar los permisos o credenciales para que el cluster de Kubernetes pueda descargar imágenes del registro privado.
+
+Fase 3: Gestión de Imágenes y Contenedores
+
+Preparar Aplicaciones: Crear dos aplicaciones distintas (ej. Nginx para VM y Apache para AKS).
++1
+
+
+Subir Imágenes al ACR: * La imagen para la VM debe incluir: contenido web, certificado x.509 autofirmado y credenciales htpasswd.
++2
+
+Etiquetar ambas imágenes con la versión obligatoria: casopractico2.
+
+Fase 4: Configuración con Ansible
+Configurar la Aplicación en la VM:
+
+Instalar Podman y desplegar la aplicación como un contenedor.
++1
+
+Asegurar que la aplicación se gestione como un servicio del sistema persistente a reinicios.
+
+Configurar el acceso externo a través de HTTPS con autenticación básica.
++1
+
+Desplegar en Kubernetes (AKS):
+
+Automatizar el despliegue de la aplicación con almacenamiento persistente (Storage Classes de AKS).
++1
+
+Asegurar que la aplicación sea accesible desde Internet.
+
+
+Nota: Evitar módulos command, shell o script en los playbooks siempre que sea posible.
+
+Fase 5: Documentación y Entrega
+
+Redactar el Informe PDF: Debe incluir la URL del repo, diagramas propios de la arquitectura, descripción del proceso de despliegue, detalles de las aplicaciones, resolución de problemas (formato APA) y la licencia de código utilizada.
++2
+
+
+Verificación Final: Confirmar que no hay pasos manuales en el proceso y que el repositorio es público.
++2
+```
+
 ### FASE 0 — Preparar entorno y repo
 ```
 - Actualizar paquete del sistema

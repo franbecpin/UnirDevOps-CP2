@@ -1,23 +1,18 @@
-﻿provider "aws" {
-  region = "us-east-1"
+﻿terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "~> 3.0"
+    }
+  }
 }
 
-data "aws_ami" "ubuntu" {
-  most_recent = true
-
-  filter {
-    name = "name"
-    values = ["ubuntu/images/hvm-ssd-gp3/ubuntu-noble-24.04-amd64-server-*"]
-  }
-
-  owners = ["099720109477"] # Canonical
+provider "azurerm" {
+  features {}
 }
 
-resource "aws_instance" "app_server" {
-  ami           = data.aws_ami.ubuntu.id
-  instance_type = "t2.micro"
-
-  tags = {
-    Name = "learn-terraform"
-  }
+# Grupo de recursos donde irá TODO
+resource "azurerm_resource_group" "rg" {
+  name     = "rg-casopractico2"
+  location = "West Europe" 
 }

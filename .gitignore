@@ -1,10 +1,17 @@
  # Carpetas de trabajo de Terraform
 **/.terraform/
 **/.terraform/*
+.terraform/
+
+# Terraform
+.terraformrc
+terraform.rc
+
 
 # Ficheros de estado y backups (¡no deben versionarse!)
 *.tfstate
 *.tfstate.*
+*.tfstate.backup
 crash.log
 crash.*.log
 override.tf
@@ -18,7 +25,6 @@ override.tf.json
 **/.terraform.lock.hcl
 
 # Otros (según tu entorno/editor)
-.terraformrc
-terraform.rc
 .vscode/
 .DS_Store
+id_rsa_azure
