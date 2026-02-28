@@ -1,4 +1,4 @@
-﻿terraform {
+terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
@@ -14,5 +14,5 @@ provider "azurerm" {
 # Grupo de recursos donde irá TODO
 resource "azurerm_resource_group" "rg" {
   name     = "rg-casopractico2"
-  location = "West Europe" 
+  location = "West Europe"
 }

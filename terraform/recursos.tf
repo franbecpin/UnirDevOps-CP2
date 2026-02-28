@@ -1,5 +1,5 @@
-﻿resource "azurerm_container_registry" "acr" {
-  name                = "acrUNIRfbpcasoPractico2" 
+resource "azurerm_container_registry" "acr" {
+  name                = "acrUNIRfbpcasoPractico2"
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
   sku                 = "Basic"
@@ -45,11 +45,11 @@ resource "azurerm_network_interface" "nic" {
 
 # La Máquina Virtual
 resource "azurerm_linux_virtual_machine" "vm" {
-  name                = "vm-podman"
-  resource_group_name = azurerm_resource_group.rg.name
-  location            = azurerm_resource_group.rg.location
-  size                = "Standard_D2s_v3" # Tamaño recomendado
-  admin_username      = "azureuser"
+  name                  = "vm-podman"
+  resource_group_name   = azurerm_resource_group.rg.name
+  location              = azurerm_resource_group.rg.location
+  size                  = "Standard_D2s_v3" # Tamaño recomendado
+  admin_username        = "azureuser"
   network_interface_ids = [azurerm_network_interface.nic.id]
 
   admin_ssh_key {
