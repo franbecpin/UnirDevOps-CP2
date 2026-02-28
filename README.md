@@ -1,13 +1,16 @@
 # UnirDevOps-CP2
-Repositorio para la práctica 2 de UnirDevops
+## Repositorio para la práctica 2 de UnirDevops
 
 **Tutoriales**
 Tutoriales de Hashicorp.
-Contiene ejemplos y una consola para hacer pruebas.
+Contiene ejemplos y una consola para hacer pruebas:  
 https://developer.hashicorp.com/terraform/tutorials
 
-Documentación de Terraform
+Documentación de Terraform:  
 https://developer.hashicorp.com/terraform/docs
+
+Información proveedores, módulos, etc (con código básico de ejemplo)  
+https://registry.terraform.io/
 
 ### main.tf
 - Crea la VM en AWS
@@ -52,25 +55,27 @@ https://developer.hashicorp.com/terraform/docs
 
 ---
 Ejemplo proyecto Terraform:
-
-mi-proyecto-terraform/
-├── main.tf          # Recursos principales y llamadas a módulos
-├── providers.tf     # Configuración del proveedor (AWS, Azure, GCP)
-├── variables.tf     # Definición de variables de entrada
-├── outputs.tf       # Salidas (IDs, IPs, etc.)
-├── locals.tf        # Variables locales (opcional, para lógica compleja)
-├── terraform.tfvars # Valores reales de las variables
-├── backend.tf       # Configuración del backend (donde se guarda el estado)
-├── README.md        # Documentación
-├── modules/         # Módulos reutilizables propios
-│   └── mi-modulo/
-│       ├── main.tf
-│       ├── variables.tf
-│       └── outputs.tf
-└── environments/    # Configuración por entorno (opcional, para gran escala)
-    ├── dev/
-    └── prod/
-
+```
+mi-proyecto-terraform/  
+├── main.tf          # Recursos principales y llamadas a módulos  
+├── providers.tf     # Configuración del proveedor (AWS, Azure, GCP)  
+├── versions.tf      # Configuración de las versiones del proveedor (Opcional para separarlos de provider)   
+│                    # (AWS, Azure, GCP)  
+├── variables.tf     # Definición de variables de entrada  
+├── outputs.tf       # Salidas (IDs, IPs, etc.) Se ejecuta al final del proceso de despliegue 
+├── locals.tf        # Variables locales (opcional, para lógica compleja)  
+├── terraform.tfvars # Valores reales de las variables  
+├── backend.tf       # Configuración del backend (donde se guarda el estado)  
+├── README.md        # Documentación  
+├── modules/         # Módulos reutilizables propios  
+│   └── mi-modulo/  
+│       ├── main.tf  # Contendrá el código asociado al módulo
+│       ├── variables.tf  
+│       └── outputs.tf  
+└── environments/    # Configuración por entorno (opcional, para gran escala)  
+    ├── dev/  
+    └── prod/  
+```
 ---
 ## Asignar la credenciales AWS a Terraform
 1. Abrir AWS Console y acceder al servicio IAM.
